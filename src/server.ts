@@ -1,8 +1,9 @@
-console.log("EXECUTED");
+// import moment from "moment"; // const moment = require('moment');
 
-import moment  from "moment";
-const currenTime = moment().format("YYY MM DD");
-console.log(currenTime);
+import dotenv from 'dotenv';
+dotenv.config();
 
-const person : string = "Jony";
-const count : number = 29;
+// console.log("PORT:",process.env.PORT);
+
+// console.log("MONGO_URL:",process.env.MONGO_URL);
+
