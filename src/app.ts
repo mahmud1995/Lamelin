@@ -1,6 +1,7 @@
 import express from "express";
 import path from 'path';
 import router from "./router";
+import routerAdmin from "./routerAdmin";
 /*
     1-ENTRENCE
 */
@@ -23,11 +24,6 @@ app.use(express.json());
 // member: USER & AGENT & ADMIN
 
 
-
-
-
-
-
 /*
     3-VIEWS
 */
@@ -42,7 +38,14 @@ app.set('view engine', 'ejs');
 /*
     4-ROUTERS
 */
+app.use('/admin', routerAdmin);
 app.use('/', router); // MiddleWare DESIGN PATTERN ishlatilgan
 
+/*
+WE HAVE 2 GOALS FROM BURAK backend SERVER: 
+    SPA: REACT ==> REST API Sifatida ishlatamiz
+    BSSR: EJS(framework)
+
+*/
 
 export default app; // CommonJS: module.exports = , 
