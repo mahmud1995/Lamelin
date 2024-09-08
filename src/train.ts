@@ -1,25 +1,49 @@
-class Person {
-	age: number;
-	firstName: string;
-	lastName:string;
-	constructor(age:number, firstName: string,  lastName: string) {
-		this.age = age;
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
+/*
+H2-TASK: 
+
+Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+MASALAN: getDigits("m14i1t") return qiladi "141"
+*/
+function getDigits(input: string): string {
+	// Digitlarni tenglashtirish uchun RegEx dan foydalanib, ularni single stringga birlashtiramiz
+	return input.replace(/\D/g, '');
 }
-const person1 = new Person(99, "Martin", "robertson");
-console.log(person1);
+const birinchiDigit = getDigits("m14i1t");
+console.log(birinchiDigit);
 
 
-const hasError : boolean = false;
-const completed : boolean = true;
 
-const result = completed && hasError;
-console.log("AND '&&' operator result:",result)
 
-const result2 = completed || hasError;
-console.log("OR '||' operator result:", result2);
+
+
+
+
+
+
+
+
+// class Person {
+// 	age: number;
+// 	firstName: string;
+// 	lastName:string;
+// 	constructor(age:number, firstName: string,  lastName: string) {
+// 		this.age = age;
+// 		this.firstName = firstName;
+// 		this.lastName = lastName;
+// 	}
+// }
+// const person1 = new Person(99, "Martin", "robertson");
+// console.log(person1);
+
+
+// const hasError : boolean = false;
+// const completed : boolean = true;
+
+// const result = completed && hasError;
+// console.log("AND '&&' operator result:",result)
+
+// const result2 = completed || hasError;
+// console.log("OR '||' operator result:", result2);
 
 // Unions
 
