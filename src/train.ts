@@ -1,15 +1,28 @@
+function majorityElement(arr: number[]) {
+    return arr.sort((arr1) =>
+        arr.filter(ele => ele === arr1).length
+    )[arr.length - 1];
+}
+//Call
+const majelemresult = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
+console.log('RESULT:', majelemresult);
+
+
+
+
+
 /*
 H2-TASK: 
 
 Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 MASALAN: getDigits("m14i1t") return qiladi "141"
-*/
-function getDigits(input: string): string {
-	// Digitlarni tenglashtirish uchun RegEx dan foydalanib, ularni single stringga birlashtiramiz
-	return input.replace(/\D/g, '');
-}
-const birinchiDigit = getDigits("m14i1t");
-console.log(birinchiDigit);
+// */
+// function getDigits(input: string): string {
+// 	// Digitlarni tenglashtirish uchun RegEx dan foydalanib, ularni single stringga birlashtiramiz
+// 	return input.replace(/\D/g, '');
+// }
+// const birinchiDigit = getDigits("m14i1t");
+// console.log(birinchiDigit);
 
 
 
