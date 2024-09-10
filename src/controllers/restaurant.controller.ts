@@ -1,15 +1,18 @@
 import {Request, Response} from 'express';
 import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service"
+import { MemberInput } from '../libs/types/member';
+import { MemberType } from '../libs/enums/member.enum';
 
 const restaurantController: T = {};
 
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
-        res.send("Home Page")
-
+        console.log("goHome");
+        res.send("Home Page");
+        // send | json | redirect | end | render
     } catch(err) {
-        console.log("ERROR, goHome:", err)
+        console.log("ERROR, goHome:", err);
     }
     res.send('Home Page');
 };
@@ -27,5 +30,31 @@ restaurantController.getSignup = (req: Request, res: Response) => {
         console.log("ERROR, getSignup:", err)
     }
 };
+
+restaurantController.processLogin  = (req: Request, res: Response) => {
+    try {
+        console.log("processLogin");
+        res.send('DONE');
+    } catch(err) {
+        console.log("ERROR, getSignup:", err)
+    }
+};
+restaurantController.processSignup  = async (req: Request, res: Response) => {
+    try {
+        console.log("processLogin");
+        console.log("body:", req.body);
+
+        // New Member == member.ts
+        const newMember: MemberInput = req.body;
+        newMember.memberType = MemberType.RESTAURANT;
+
+        const memberService = new MemberService();
+        await memberService.processSingup(newMember); // await==> async bulgani ucun
+        res.send('DONE');
+    } catch(err) {
+        console.log("ERROR, processSignup:", err)
+    }
+};
+
 
 export default restaurantController;
