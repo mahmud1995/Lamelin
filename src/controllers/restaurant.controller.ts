@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service"
-import { MemberInput } from '../libs/types/member';
+import { LoginInput, MemberInput } from '../libs/types/member';
 import { MemberType } from '../libs/enums/member.enum';
 
 const restaurantController: T = {};
@@ -25,18 +25,26 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 };
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
+        console.log("getSignup");
         res.send('Sign-up PAge');
     } catch(err) {
         console.log("ERROR, getSignup:", err)
     }
 };
 
-restaurantController.processLogin  = (req: Request, res: Response) => {
+restaurantController.processLogin  = async (req: Request, res: Response) => {
     try {
         console.log("processLogin");
+        console.log("body:", req.body);
+        const input: LoginInput = req.body;
+
+        const memberService = new MemberService();
+        const result = await memberService.processLogin(input);
+
         res.send('DONE');
     } catch(err) {
-        console.log("ERROR, getSignup:", err)
+        console.log("ERROR, processLogin:", err);
+        res.send(err);
     }
 };
 restaurantController.processSignup  = async (req: Request, res: Response) => {
@@ -49,7 +57,8 @@ restaurantController.processSignup  = async (req: Request, res: Response) => {
         newMember.memberType = MemberType.RESTAURANT;
 
         const memberService = new MemberService();
-        await memberService.processSingup(newMember); // await==> async bulgani ucun
+        await memberService.processSignup(newMember); // await==> async bulgani ucun
+        
         res.send('DONE');
     } catch(err) {
         console.log("ERROR, processSignup:", err)
