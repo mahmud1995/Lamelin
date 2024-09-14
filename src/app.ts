@@ -40,8 +40,8 @@ app.set('view engine', 'ejs');
 /*
                 4-ROUTERS
 */
-app.use('/admin', routerAdmin);
-app.use('/', router); // MiddleWare DESIGN PATTERN ishlatilgan
+app.use('/admin', routerAdmin); // BSSR
+app.use('/', router); // SPA, MiddleWare DESIGN PATTERN ishlatilgan
 
 /*
 WE HAVE 2 GOALS FROM BURAK backend SERVER: 

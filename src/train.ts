@@ -1,11 +1,18 @@
-function majorityElement(arr: number[]) {
-    return arr.sort((arr1) =>
-        arr.filter(ele => ele === arr1).length
-    )[arr.length - 1];
-}
-//Call
-const majelemresult = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
-console.log('RESULT:', majelemresult);
+/*
+    Traditional FD(Forntend Development) => BSSR(Burak Admin loyihasi) => EJS(framework)
+    Modern FD(Frontend Development) => SPA(Single Page Application) => REACT(library)
+*/ 
+
+
+
+// function majorityElement(arr: number[]) {
+//     return arr.sort((arr1) =>
+//         arr.filter(ele => ele === arr1).length
+//     )[arr.length - 1];
+// }
+// //Call
+// const majelemresult = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
+// console.log('RESULT:', majelemresult);
 
 
 
