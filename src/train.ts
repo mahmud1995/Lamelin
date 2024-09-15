@@ -5,13 +5,13 @@ Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni
 MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 */
 
-function findLongestWord(str:string) {
-    return str
-        .split(' ')
-        .sort((str1, str2) => str2.length - str1.length)[0];
-}
-const natija = findLongestWord("I come from Uzbekistan");
-console.log("Natija:", natija);
+// function findLongestWord(str:string) {
+//     return str
+//         .split(' ')
+//         .sort((str1, str2) => str2.length - str1.length)[0];
+// }
+// const natija = findLongestWord("I come from Uzbekistan");
+// console.log("Natija:", natija);
 
 
 /*
