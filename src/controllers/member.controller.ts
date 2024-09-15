@@ -14,7 +14,7 @@ memberController.signup = async (req: Request, res:Response) => {
         console.log("body:", req.body); // // // Fixed
         const input: MemberInput = req.body,
             result: Member = await memberService.signup(input);
-        // TODO: TOKEN
+        // TODO: TOKEN 
 
         res.json({ member: result });    // // // Fixed
         // res.send("DONE!!!!!");
@@ -30,7 +30,7 @@ memberController.login = async (req: Request, res: Response) => {
         console.log("body:", req.body);  // // // Fixed
         const input: LoginInput = req.body,
             result = await memberService.login(input);
-        // TODO: TOKEN
+        // TODO: TOKEN AUTHENTICATION
 
         res.json({ member: result });
     } catch (err) {

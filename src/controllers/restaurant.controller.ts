@@ -10,25 +10,27 @@ const restaurantController: T = {};
 
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
-        console.log("goHome");
-        res.send("<h1>Home Page</h1>");
+        console.log("goHome"); // Terminal ucun
+        res.render("home"); // User uchun
         // send | json | redirect | end | render
     } catch(err) {
         console.log("ERROR, goHome:", err);
+        res.send("Error");
     }
-    res.send('Home Page');
 };
+
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
-        res.send('Login Page');
+        res.render("login");
     } catch(err) {
         console.log("ERROR, getLogin:", err)
     }
 };
+
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
         console.log("getSignup");
-        res.send('Sign-up Page, Method: GET');
+        res.render("signup");
     } catch(err) {
         console.log("ERROR, getSignup:", err)
     }
@@ -42,21 +44,20 @@ restaurantController.processSignup  = async (req: Request, res: Response) => {
         const newMember: MemberInput = req.body;
         newMember.memberType = MemberType.RESTAURANT;
         const result = await memberService.signup(newMember); // await==> async bulgani ucun
-        
+        // TODO: SESSIONS AUTHENTICATION    
         res.send("DONE");
     } catch(err) {
         console.log("ERROR, processSignup:", err)
     }
 };
-
-
+    
 restaurantController.processLogin  = async (req: Request, res: Response) => {
     try {
         console.log("processLogin");
 
         const input: LoginInput = req.body;
         const result = await memberService.login(input);
-
+        // TODO: SESSIONS AUTHENTICATION
         res.send('DONE');
     } catch(err) {
         console.log("ERROR, processLogin:", err);
