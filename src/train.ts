@@ -1,3 +1,24 @@
+/* K-TASK: 
+
+Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
+MASALAN: countVowels("string") return 1;
+*/  
+function countVowels(str:string): number {
+    // Katta va kichik harfdagi unli harflarga mos keladigan RegEx 
+    const vowels = str.match(/[aeiouAEIOU]/g);
+
+    return vowels ? vowels.length : 0;
+    // agar vowels ni ichida unli harf bulsa, uni sonini return, bumasa 0 ni return
+}
+console.log(countVowels("string"));
+console.log(countVowels("Hello, my name is Jony"));
+
+
+
+
+
+
+
 /*
 J-TASK: 
 

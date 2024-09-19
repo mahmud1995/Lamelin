@@ -6,7 +6,6 @@ import { MemberType } from '../libs/enums/member.enum';
 import { Message } from '../libs/Errors';
 
 const memberService = new MemberService();
-
 const restaurantController: T = {};
 
 restaurantController.goHome = (req: Request, res: Response) => {
