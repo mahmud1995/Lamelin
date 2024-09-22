@@ -46,7 +46,7 @@ restaurantController.processSignup  = async (req: AdminRequest, res: Response) =
         const newMember: MemberInput = req.body;
         newMember.memberType = MemberType.RESTAURANT;
         const result = await memberService.signup(newMember); // await==> async bulgani ucun
-        
+
         // TODO: SESSIONS AUTHENTICATION
         req.session.member = result;
         req.session.save(function() {

@@ -7,7 +7,7 @@ import { MORGAN_FORMAT } from "./libs/config";
 
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
-const MongoDBStore =ConnectMongoDB(session);
+const MongoDBStore = ConnectMongoDB(session); // 
 const store = new MongoDBStore({
     uri: String(process.env.MONGO_URL),
     collection: "sessions",
@@ -17,9 +17,9 @@ const store = new MongoDBStore({
 */
 const app = express();
 // console.log("__dirname:", __dirname);
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(express.static(path.join(__dirname, "public"))); // tashqariga ochib berish
+app.use(express.urlencoded({extended: true})); // traditional API lar uchun backend imizga ochiqlayapmiz
+app.use(express.json()); // REST API larni backendga kirishga ruxsat beradi, JSON==> OBJ
 // MIddleWare integration hosil qilamiz
 app.use(morgan(MORGAN_FORMAT));
 
@@ -52,7 +52,7 @@ app.use(
 /*
                 3-VIEWS
 */
-app.set('view', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
