@@ -2,6 +2,7 @@ import express from 'express';
 const routerAdmin = express.Router();
 import restaurantController from "./controllers/restaurant.controller";
 import productController from './controllers/product.controller';
+import makeUploader from './libs/utils/uploader';
 /* Restaurant */
 routerAdmin.get('/', restaurantController.goHome);
 // routerAdmin.get('/', productController.goHome);
@@ -10,7 +11,11 @@ routerAdmin
     .post("/login", restaurantController.processLogin);
 routerAdmin
     .get('/signup', restaurantController.getSignup)
-    .post("/signup", restaurantController.processSignup);
+    .post(
+        "/signup", 
+        makeUploader("members").single("memberImage"),
+        restaurantController.processSignup
+    );
 
 routerAdmin.get('/logout', restaurantController.logout);
 
@@ -24,9 +29,11 @@ routerAdmin.get(
     '/product/all', 
     restaurantController.verifyRestaurant,
     productController.getAllProducts);
-    
+
 routerAdmin.post("/product/create", 
     restaurantController.verifyRestaurant,
+    // makeUploader.single('productImage'),
+    makeUploader("products").single("productImage"),
     productController.createNewProduct);
 
 routerAdmin.post("/product/:id", 
