@@ -1,3 +1,19 @@
+// M-TASK
+// Define
+function getSquareNumbers(arr: number[]) {
+    return arr.map(ele => ({
+        number: ele,
+        square: ele * ele
+    }));
+}
+// Call
+const natija1 = getSquareNumbers([1, 2, 3]);
+console.log('M-TASK:', natija1);
+const natija2 = getSquareNumbers([89, 90, 91]);
+console.log('M-TASK:', natija2);
+
+
+
 /**
  L-TASK: 
 
@@ -7,12 +23,12 @@ va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
 
  */
-function reverseSentence(str: string) {
-    return str.split('').reverse().join('');
-}
+// function reverseSentence(str: string) {
+//     return str.split('').reverse().join('');
+// }
 
-const teskarinatija = reverseSentence("we like conding!")
-console.log("we like coding! <=>",teskarinatija);
+// const teskarinatija = reverseSentence("we like conding!")
+// console.log("we like coding! <=>",teskarinatija);
 
 
 
