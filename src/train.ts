@@ -1,16 +1,34 @@
-// M-TASK
+// N-TASK
 // Define
-function getSquareNumbers(arr: number[]) {
-    return arr.map(ele => ({
-        number: ele,
-        square: ele * ele
-    }));
+
+function palindromCheck(str: string) {
+
+    const newPalindrom = str.toLocaleLowerCase().replace(/[^a-z0-9]/g, '');
+    const newReverse = newPalindrom.split('').reverse().join('');
+    return newReverse === newPalindrom;
 }
 // Call
-const natija1 = getSquareNumbers([1, 2, 3]);
-console.log('M-TASK:', natija1);
-const natija2 = getSquareNumbers([89, 90, 91]);
-console.log('M-TASK:', natija2);
+const natija = palindromCheck("son");
+console.log('N-TASK:', natija);
+
+
+
+
+
+
+// M-TASK
+// Define
+// function getSquareNumbers(arr: number[]) {
+//     return arr.map(ele => ({
+//         number: ele,
+//         square: ele * ele
+//     }));
+// }
+// // Call
+// const natija1 = getSquareNumbers([1, 2, 3]);
+// console.log('M-TASK:', natija1);
+// const natija2 = getSquareNumbers([89, 90, 91]);
+// console.log('M-TASK:', natija2);
 
 
 
