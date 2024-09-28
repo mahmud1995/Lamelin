@@ -38,7 +38,15 @@
         </div>
       </div>
       <button class="login-btn btn" name="login" type="submit">Login</button>
-    </div>
+      </div>
+      <script>
+        $(function() {
+          $(".login-btn").click(function(event) {
+            event.preventDefault();
+            alert("Clicked!");
+          });
+        });
+       </script>
   </form>
 </body>
 
