@@ -70,6 +70,7 @@ class MemberService {
             throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
         }
     }
+    
     public async processLogin(input: LoginInput): Promise<Member> {
         const member = await this.memberModel
             .findOne(
