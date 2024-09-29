@@ -1,15 +1,82 @@
+console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
+/* Project Standards:
+    -Logging Standards
+    -Naming Standards
+    function, method, variable => camalCase
+    class => PascalCase
+    folder => KEBAB-CASE
+    css => sake_case
+*/
+
+/* Request:
+    Traditional Api
+    Rest Api
+    Graphql Api
+    ...
+*/
+
+/* FrontEnd Development:
+    Traditional FrontEnd Development => BSSR (Admin) => EJS
+    Modern FrontEnd Development => SPA (Users) => REACT
+*/
+
+/* Cookies:
+  request + join qiladi.
+  Self Destroy => O'zini o'zi yo'q qolish hususiyatiga ega.
+*/
+
+/** Validation:
+    FrontEnd validation,
+    BackEnd validation,
+    Database validation.
+*/
+console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
+
+/* O-task
+Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+*/
+
+function calculateSumOfNumbers(values: any[]) {
+    return values.reduce((sum, value) => {
+        if (typeof value === 'number') {
+            return sum + value;
+        }
+        return sum;
+    }, 0
+);
+};
+
+
+// tekshirish
+const natija = calculateSumOfNumbers([10, "10", {son: 10}, true, 35]);
+console.log("Natija:",natija);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // N-TASK
 // Define
 
-function palindromCheck(str: string) {
+// function palindromCheck(str: string) {
 
-    const newPalindrom = str.toLocaleLowerCase().replace(/[^a-z0-9]/g, '');
-    const newReverse = newPalindrom.split('').reverse().join('');
-    return newReverse === newPalindrom;
-}
-// Call
-const natija = palindromCheck("son");
-console.log('N-TASK:', natija);
+//     const newPalindrom = str.toLocaleLowerCase().replace(/[^a-z0-9]/g, '');
+//     const newReverse = newPalindrom.split('').reverse().join('');
+//     return newReverse === newPalindrom;
+// }
+// // Call
+// const natija = palindromCheck("son");
+// console.log('N-TASK:', natija);
 
 
 
