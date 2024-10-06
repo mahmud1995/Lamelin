@@ -32,17 +32,64 @@ console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 */
 console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 
+
+/*
+R-TASK:
+
+Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+MASALAN: calculate("1+3") return 4;
+*/ 
+// console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
+
+
+function calculte(str:string) {
+    let sum = 0;
+    for(let i = 0; i < str.length; i++) { // function == string qabul qiladi
+        if(!isNaN(parseInt(str[i]))) {    // Check qilamiz agar Not NaN == false ==> true --> Integerga parse qil
+            let num = parseInt(str[i]);   // 
+            sum += num                    // Add integer values
+        }
+        // let num = parseInt(str[i]);
+        // sum += num
+    }
+    return sum;
+}
+
+const natija = calculte("1+3");
+console.log(natija)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // P-TASK:
 
 // Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
 // MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
-function objectToArray(obj: {[key: string]: any}) {
-    return Object.entries(obj);
-};
+// function objectToArray(obj: {[key: string]: any}) {
+//     return Object.entries(obj);
+// };
 
-const natija99 = objectToArray({ a: 10, b: 20 });
-console.log('p-task:', natija99); 
+// const natija99 = objectToArray({ a: 10, b: 20 });
+// console.log('p-task:', natija99); 
 
 
 
