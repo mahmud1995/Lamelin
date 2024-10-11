@@ -1,3 +1,19 @@
+// T-TASK:
+
+// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+// MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+// 
+function mergeSortedArrays(num: number[], setNum: number[]) {
+    const sortNum = [...num, ...setNum].sort((a, b) => a - b);
+
+    return sortNum;
+
+}
+// Call
+const natija90 = mergeSortedArrays([0,3,4,31], [4,6,30]);
+console.log('result:', natija90);
+
+
 console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 /* Project Standards:
     -Logging Standards
@@ -42,21 +58,21 @@ MASALAN: calculate("1+3") return 4;
 // console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 
 
-function calculte(str:string) {
-    let sum = 0;
-    for(let i = 0; i < str.length; i++) { // function == string qabul qiladi
-        if(!isNaN(parseInt(str[i]))) {    // Check qilamiz agar Not NaN == false ==> true --> Integerga parse qil
-            let num = parseInt(str[i]);   // 
-            sum += num                    // Add integer values
-        }
-        // let num = parseInt(str[i]);
-        // sum += num
-    }
-    return sum;
-}
+// function calculte(str:string) {
+//     let sum = 0;
+//     for(let i = 0; i < str.length; i++) { // function == string qabul qiladi
+//         if(!isNaN(parseInt(str[i]))) {    // Check qilamiz agar Not NaN == false ==> true --> Integerga parse qil
+//             let num = parseInt(str[i]);   // 
+//             sum += num                    // Add integer values
+//         }
+//         // let num = parseInt(str[i]);
+//         // sum += num
+//     }
+//     return sum;
+// }
 
-const natija = calculte("1+3");
-console.log(natija)
+// const natija = calculte("1+3");
+// console.log(natija)
 
 
 
