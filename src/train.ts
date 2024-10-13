@@ -1,18 +1,25 @@
-// T-TASK:
+/*
+U-TASK:
 
-// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
-// MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
-// 
-function mergeSortedArrays(num: number[], setNum: number[]) {
-    const sortNum = [...num, ...setNum].sort((a, b) => a - b);
+Shunday function yozing, uni number parametri bolsin 
+va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
 
-    return sortNum;
-
+*/
+function sumOdds(input:number) {
+    let count = 0;
+    for (let i = 1; i < input; i += 2) {
+        count++;
+    }
+    return count
 }
-// Call
-const natija90 = mergeSortedArrays([0,3,4,31], [4,6,30]);
-console.log('result:', natija90);
 
+const natija = sumOdds(5)
+const natija2 = sumOdds(9)
+const natija3 = sumOdds(11)
+console.log("return:",natija)
+console.log("return:",natija2)
+console.log("return:",natija3)
 
 console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 /* Project Standards:
@@ -47,6 +54,21 @@ console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
     Database validation.
 */
 console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
+
+// T-TASK:
+
+// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+// MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+// 
+// function mergeSortedArrays(num: number[], setNum: number[]) {
+//     const sortNum = [...num, ...setNum].sort((a, b) => a - b);
+
+//     return sortNum;
+
+// }
+// // Call
+// const natija90 = mergeSortedArrays([0,3,4,31], [4,6,30]);
+// console.log('result:', natija90);
 
 
 /*
