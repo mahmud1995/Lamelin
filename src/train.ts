@@ -1,3 +1,16 @@
+function missingNumber(num: number[]) {
+    let arrNums = num.length * (num.length + 1) / 2;
+
+    let allNums = num.reduce((ele, nums) => ele + nums, 0);
+
+    return arrNums - allNums;
+}
+
+// Call
+const natija10 = missingNumber([3, 0, 1]);
+console.log('s-task:', natija10);
+
+
 /*
 U-TASK:
 
@@ -92,7 +105,21 @@ MASALAN: calculate("1+3") return 4;
 //     }
 //     return sum;
 // }
+// function calculte(str:string) {
+//     let sum = 0;
+//     for(let i = 0; i < str.length; i++) { // function == string qabul qiladi
+//         if(!isNaN(parseInt(str[i]))) {    // Check qilamiz agar Not NaN == false ==> true --> Integerga parse qil
+//             let num = parseInt(str[i]);   // 
+//             sum += num                    // Add integer values
+//         }
+//         // let num = parseInt(str[i]);
+//         // sum += num
+//     }
+//     return sum;
+// }
 
+// const natija = calculte("1+3");
+// console.log(natija)
 // const natija = calculte("1+3");
 // console.log(natija)
 
