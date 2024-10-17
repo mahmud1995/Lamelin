@@ -22,7 +22,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public"))); // tashqariga ochib berish
 app.use(express.urlencoded({extended: true})); // traditional API lar uchun backend imizga ochiqlayapmiz
 app.use(express.json()); // REST API larni backendga kirishga ruxsat beradi, JSON==> OBJ
-app.use(cookieParser());
+app.use(cookieParser()); // cookie lar parsing qb beradi
 // MIddleWare integration hosil qilamiz
 app.use(morgan(MORGAN_FORMAT));
 
@@ -57,16 +57,11 @@ app.use(function(req, res, next) {
 
 // member: USER & AGENT & ADMIN
 
-
 /*
                 3-VIEWS
 */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-
-
-
 
 
 /*
