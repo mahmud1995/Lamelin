@@ -1,15 +1,67 @@
-function missingNumber(num: number[]) {
-    let arrNums = num.length * (num.length + 1) / 2;
+/*
+V-TASK:
+Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+*/
 
-    let allNums = num.reduce((ele, nums) => ele + nums, 0);
+function countChars(str: string): Record<string, number> {
+    const result: Record<string, number> = {};
+    
+    str.split('').forEach(char => {
+      result[char] = (result[char] || 0) + 1;
+    });
+  
+    return result;
+  }
 
-    return arrNums - allNums;
-}
+  
+const natija88 = countChars("hello");
+console.log('V-TASK:', natija88);
 
-// Call
-const natija10 = missingNumber([3, 0, 1]);
-console.log('s-task:', natija10);
 
+
+
+
+
+
+
+
+
+/// function missingNumber(num: number[]) {
+//     let arrNums = num.length * (num.length + 1) / 2;
+
+//     let allNums = num.reduce((ele, nums) => ele + nums, 0);
+
+//     return arrNums - allNums;
+// }
+
+// // Call
+// const natija10 = missingNumber([3, 0, 1]);
+// console.log('s-task:', natija10);
+
+
+/*
+U-TASK:
+
+Shunday function yozing, uni number parametri bolsin 
+va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+*/
+// function sumOdds(input:number) {
+//     let count = 0;
+//     for (let i = 1; i < input; i += 2) {
+//         count++;
+//     }
+//     return count
+// }
+
+// const natija = sumOdds(5)
+// const natija2 = sumOdds(9)
+// const natija3 = sumOdds(11)
+// console.log("return:",natija)
+// console.log("return:",natija2)
+// console.log("return:",natija3)
 
 console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 /* Project Standards:
@@ -45,6 +97,21 @@ console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 */
 console.log("<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 
+// T-TASK:
+
+// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+// MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+// 
+// function mergeSortedArrays(num: number[], setNum: number[]) {
+//     const sortNum = [...num, ...setNum].sort((a, b) => a - b);
+
+//     return sortNum;
+
+// }
+// // Call
+// const natija90 = mergeSortedArrays([0,3,4,31], [4,6,30]);
+// console.log('result:', natija90);
+
 
 /*
 R-TASK:
@@ -67,7 +134,21 @@ MASALAN: calculate("1+3") return 4;
 //     }
 //     return sum;
 // }
+// function calculte(str:string) {
+//     let sum = 0;
+//     for(let i = 0; i < str.length; i++) { // function == string qabul qiladi
+//         if(!isNaN(parseInt(str[i]))) {    // Check qilamiz agar Not NaN == false ==> true --> Integerga parse qil
+//             let num = parseInt(str[i]);   // 
+//             sum += num                    // Add integer values
+//         }
+//         // let num = parseInt(str[i]);
+//         // sum += num
+//     }
+//     return sum;
+// }
 
+// const natija = calculte("1+3");
+// console.log(natija)
 // const natija = calculte("1+3");
 // console.log(natija)
 
