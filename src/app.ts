@@ -2,6 +2,7 @@ import express from "express";
 import path from 'path';
 import router from "./router";
 import routerAdmin from "./router-admin";
+import cookieParser from "cookie-parser";
 import morgan from 'morgan';
 import { MORGAN_FORMAT } from "./libs/config";
 
@@ -21,6 +22,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public"))); // tashqariga ochib berish
 app.use(express.urlencoded({extended: true})); // traditional API lar uchun backend imizga ochiqlayapmiz
 app.use(express.json()); // REST API larni backendga kirishga ruxsat beradi, JSON==> OBJ
+app.use(cookieParser());
 // MIddleWare integration hosil qilamiz
 app.use(morgan(MORGAN_FORMAT));
 
