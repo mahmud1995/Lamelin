@@ -16,12 +16,13 @@ class ProductService {
     public async getAllProducts(): Promise<Product[]> {
         const result = await this.productModel.find().exec();
         if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-
+        // @ts-ignore
         return result;
     }
 
     public async createNewProduct(input: ProductInput): Promise<Product> {
         try {
+            // @ts-ignore
             return await this.productModel.create(input);
         } catch (err) {
             console.log("Error, model:createNewProduct", err);
@@ -38,7 +39,7 @@ class ProductService {
         .findByIdAndUpdate({ _id: id}, input, {new: true} )
         .exec();
         if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
-
+        // @ts-ignore
         return result;
         
     }
