@@ -1,29 +1,44 @@
+/*W-TASK:
+
+Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+*/ 
+
+function chunkArr(arr: number[], numSize: number) {
+  const newArr = [];
+  for(let i = 0; i < arr.length; i += numSize) {
+    newArr.push(arr.slice(i, i + numSize));
+  }
+  return newArr;
+}
+
+const arrays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const natija999 = chunkArr(arrays, 3);
+
+console.log('W-TASK: =>', natija999);
+
+
+
+
 /*
 V-TASK:
 Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
 MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 */
 
-function countChars(str: string): Record<string, number> {
-    const result: Record<string, number> = {};
+// function countChars(str: string): Record<string, number> {
+//     const result: Record<string, number> = {};
     
-    str.split('').forEach(char => {
-      result[char] = (result[char] || 0) + 1;
-    });
+//     str.split('').forEach(char => {
+//       result[char] = (result[char] || 0) + 1;
+//     });
   
-    return result;
-  }
+//     return result;
+//   }
 
   
-const natija88 = countChars("hello");
-console.log('V-TASK:', natija88);
-
-
-
-
-
-
-
+// const natija88 = countChars("hello");
+// console.log('V-TASK:', natija88);
 
 
 
