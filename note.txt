@@ -16,3 +16,8 @@ NESTAR PROJECT
 
 Agar ctrl+z bosib quysam ctrl+c urniga:
     npm i kill-port --global
+
+
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"

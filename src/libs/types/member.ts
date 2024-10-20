@@ -4,7 +4,7 @@ import { Request } from "express";
 import { Session } from "express-session";
 
 export interface Member {
-    _id: ObjectId;
+    _id:  string | ObjectId;
     memberType: MemberType;
     memberStatus: MemberStatus;
     memberNick: string;
@@ -35,7 +35,7 @@ export interface LoginInput {
 }
 
 export interface MemberUpdateInput {
-    _id: ObjectId;
+    _id:  string | ObjectId;
     memberStatus?: MemberStatus;
     memberNick?: string;
     memberPhone?: string;

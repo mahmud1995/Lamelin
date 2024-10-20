@@ -2,13 +2,18 @@ import express from 'express';
 const router = express.Router();
 import memberController from './controllers/member.controller';
 // import restaurantController from './controllers/restaurant.controller';
+import uploader from "./libs/utils/uploader";
 
 /** Member **/
 router.post("/member/login", memberController.login);
 router.post("/member/signup", memberController.signup);
 router.post("/member/logout", memberController.verifyAuth, memberController.logout);
 router.get("/member/detail", memberController.verifyAuth, memberController.getMemberDetail);
-
+router.post(
+    "/member/update", 
+    memberController.verifyAuth, // 1st: check Credentials
+    uploader("members").single("memberImage"), // req ichida memberImage bulsa > uploads/member folderiga yuklanadi
+    memberController.updateMember) // 
 
 /** Product **/
 

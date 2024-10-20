@@ -1,6 +1,6 @@
 import {NextFunction, Request, Response} from 'express';
 import { T } from "../libs/types/common";
-import { ExtendedRequest, LoginInput, Member, MemberInput } from '../libs/types/member';
+import { ExtendedRequest, LoginInput, Member, MemberInput, MemberUpdateInput } from '../libs/types/member';
 import MemberService from '../models/Member.service';
 import Errors, { HttpCode, Message } from '../libs/Errors';
 import AuthService from '../models/Auth.service';
@@ -53,7 +53,7 @@ memberController.login = async (req: Request, res: Response) => {
     }
 };
 
-// logout START
+// >>> logout START
 
 memberController.logout = (req: ExtendedRequest, res: Response) => {
     try {
@@ -66,7 +66,7 @@ memberController.logout = (req: ExtendedRequest, res: Response) => {
         else res.status(Errors.standard.code).json(Errors.standard);
     }
 }
-// logout END
+// <<< logout END
 
 
 memberController.getMemberDetail = async (req: ExtendedRequest, res: Response) => {
@@ -81,6 +81,23 @@ memberController.getMemberDetail = async (req: ExtendedRequest, res: Response) =
         else res.status(Errors.standard.code).json(Errors.standard);
     }
 }
+
+
+memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
+    try {
+        console.log("updateMember:");
+        const input:MemberUpdateInput = req.body; // inputning interface, req.body = postman|Body|form-data ga teng
+        if(req.file) input.memberImage = req.file.path; // rasm yuklangan bulsa 
+        const result = await memberService.updateMember(req.member, input);
+        res.status(HttpCode.OK).json(result);
+    } catch(err) {
+        console.log("Error, updateMember:", err);
+        if (err instanceof Errors) res.status(err.code).json(err);
+        else res.status(Errors.standard.code).json(Errors.standard);
+    }
+}
+
+
 
 memberController.verifyAuth = async (
     req: ExtendedRequest, 
