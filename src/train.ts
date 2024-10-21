@@ -1,21 +1,81 @@
+// TASK X
+
+// Shunday function yozing, uni object va string parametrlari bo'lsin.
+// Bu function, birinchi object parametri tarkibida, kalit sifatida ikkinchi string parametri
+// necha marotaba takrorlanganlini sanab qaytarsin.
+
+// Eslatma => Nested object'lar ham sanalsin
+
+// MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+// Yuqoridagi misolda, birinchi argument object, ikkinchi argument 'model'.
+// Funktsiya, shu ikkinchi argument 'model', birinchi argument object
+// tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
+
+function countOccurrences(obj: any, str: string) {
+  let count = 0;
+
+  for (let key in obj) {
+      if (key === str) count++;
+      if(typeof obj[key] === 'object' && obj[key] !== null) {
+          count += countOccurrences(obj[key], str)
+      }
+  }
+  return count
+}
+
+
+
+const result = countOccurrences(
+  {
+      model: 'Bugatti', 
+      steer: {
+          model: 'HANKOOK', size: 30,  
+      },
+  },
+       'model'
+);
+console.log('TASK-X: =>', result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*W-TASK:
 
 Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
 MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
 */ 
 
-function chunkArr(arr: number[], numSize: number) {
-  const newArr = [];
-  for(let i = 0; i < arr.length; i += numSize) {
-    newArr.push(arr.slice(i, i + numSize));
-  }
-  return newArr;
-}
+// function chunkArr(arr: number[], numSize: number) {
+//   const newArr = [];
+//   for(let i = 0; i < arr.length; i += numSize) {
+//     newArr.push(arr.slice(i, i + numSize));
+//   }
+//   return newArr;
+// }
 
-const arrays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const natija999 = chunkArr(arrays, 3);
+// const arrays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const natija999 = chunkArr(arrays, 3);
 
-console.log('W-TASK: =>', natija999);
+// console.log('W-TASK: =>', natija999);
 
 
 

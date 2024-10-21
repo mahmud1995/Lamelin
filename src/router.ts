@@ -5,6 +5,9 @@ import memberController from './controllers/member.controller';
 import uploader from "./libs/utils/uploader";
 
 /** Member **/
+router.get("/member/restaurant", 
+    memberController.getRestaurant,
+)
 router.post("/member/login", memberController.login);
 router.post("/member/signup", memberController.signup);
 router.post("/member/logout", memberController.verifyAuth, memberController.logout);
@@ -14,6 +17,8 @@ router.post(
     memberController.verifyAuth, // 1st: check Credentials
     uploader("members").single("memberImage"), // req ichida memberImage bulsa > uploads/member folderiga yuklanadi
     memberController.updateMember) // 
+
+router.get("/member/top-users", memberController.getTopUsers);
 
 /** Product **/
 
