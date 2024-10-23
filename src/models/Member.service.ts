@@ -4,7 +4,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 import * as bcrypt from "bcryptjs";
 import { shapeIntoMongooseObectId } from "../libs/config";
-// import { LeanDocument } from "mongoose";
+
 
 class MemberService {
     private readonly memberModel;
@@ -12,17 +12,17 @@ class MemberService {
     constructor() {
         this.memberModel = MemberModel;
     }
-/* SPA */
 
 
+	/** SPA */
     public async getRestaurant(): Promise<Member> {
         const result = await this.memberModel
         .findOne({ memberType: MemberType.RESTAURANT })
-        .lean()
         .exec();
         if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-        // @ts-ignore
-        return result;
+
+        return result as unknown as Member;
+
     }
 
     public async signup(input: MemberInput): Promise<Member> {
@@ -70,8 +70,8 @@ class MemberService {
         const memberId = shapeIntoMongooseObectId(member._id);
         const result = await this.memberModel.findOne({ _id: memberId, memberStatus: MemberStatus.ACTIVE} ).exec();
         if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-        // @ts-ignore
-        return result;
+
+        return result as unknown as Member;
     }
 
     public async updateMember(
@@ -83,8 +83,8 @@ class MemberService {
             .findOneAndUpdate({ _id: memberId }, input, { new : true })
             .exec();
         if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
-        // @ts-ignore
-        return result;
+        
+        return result as unknown as Member;
 
     }
 
