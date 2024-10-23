@@ -4,6 +4,8 @@ import Errors, { Message, HttpCode } from "../libs/Errors";
 import { Product, ProductInput, ProductInquiry, ProductUpdateInput } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
 import { T } from "../libs/types/common";
+import { ObjectId } from "mongoose";
+
 
 class ProductService {
     private readonly productModel;
@@ -16,6 +18,7 @@ class ProductService {
     public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
         console.log("inquiry:", inquiry);
         const match: T = { productStatus: ProductStatus.PROCESS}
+
         if(inquiry.productCollection)
             match.productCollection = inquiry.productCollection;
         if(inquiry.search) {
@@ -32,10 +35,20 @@ class ProductService {
             {$limit: inquiry.limit * 1 },
         ]).exec();
         if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-
         return result;
-
     }
+
+    public async getProduct(memberId: ObjectId | null, id: string): Promise<Product> {
+        const productId = shapeIntoMongooseObectId(id);
+        
+        let result = await this.productModel
+        .findOne({ _id: productId, productStatus: ProductStatus.PROCESS, })
+        .exec();
+        if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+        // TODO: If authenticated users => first => view log creation
+        return result as unknown as Product;
+    };
+
     /** SSR */
     public async getAllProducts(): Promise<Product[]> {
         const result = await this.productModel.find().exec();
