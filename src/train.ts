@@ -1,3 +1,20 @@
+/*
+Y-TASK:
+    Shunday function yozing, uni 2 ta array parapetri bolsin. 
+    Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
+    findIntersection([1,2,3], [3,2,0]) return [2,3]
+*/ 
+function findIntersection2(arr1: number[], arr2: number[]) {
+    return arr1.filter(value => arr2.includes(value));
+}
+// Call
+const natijabek = findIntersection2([1, 2, 3], [3, 2, 0]);
+console.log('result: =>', natijabek);
+
+
+
+
+
 // TASK X
 
 // Shunday function yozing, uni object va string parametrlari bo'lsin.
@@ -12,30 +29,31 @@
 // Funktsiya, shu ikkinchi argument 'model', birinchi argument object
 // tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
 
-function countOccurrences(obj: any, str: string) {
-  let count = 0;
 
-  for (let key in obj) {
-      if (key === str) count++;
-      if(typeof obj[key] === 'object' && obj[key] !== null) {
-          count += countOccurrences(obj[key], str)
-      }
-  }
-  return count
-}
+// function countOccurrences(obj: any, str: string) {
+//   let count = 0;
+
+//   for (let key in obj) {
+//       if (key === str) count++;
+//       if(typeof obj[key] === 'object' && obj[key] !== null) {
+//           count += countOccurrences(obj[key], str)
+//       }
+//   }
+//   return count
+// }
 
 
 
-const result = countOccurrences(
-  {
-      model: 'Bugatti', 
-      steer: {
-          model: 'HANKOOK', size: 30,  
-      },
-  },
-       'model'
-);
-console.log('TASK-X: =>', result);
+// const result = countOccurrences(
+//   {
+//       model: 'Bugatti', 
+//       steer: {
+//           model: 'HANKOOK', size: 30,  
+//       },
+//   },
+//        'model'
+// );
+// console.log('TASK-X: =>', result);
 
 
 
