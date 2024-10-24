@@ -20,7 +20,7 @@ const productController: T = {};
         const {page, limit, order, productCollection, search} = req.query;
         const inquiry: ProductInquiry = {
             order: String(order),
-            page: Number(page),
+            page: Number(page), // NaN
             limit: Number(limit),
 
         };

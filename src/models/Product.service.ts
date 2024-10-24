@@ -68,6 +68,7 @@ class ProductService {
                 .findByIdAndUpdate(
                     productId,
                     { $inc: { productViews: +1 }}, 
+                    { new : true},
                 )
                 .exec();
             }
