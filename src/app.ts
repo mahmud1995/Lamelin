@@ -9,7 +9,7 @@ import { MORGAN_FORMAT } from "./libs/config";
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import { T } from "./libs/types/common";
-const MongoDBStore = ConnectMongoDB(session); // 
+const MongoDBStore = ConnectMongoDB(session); 
 const store = new MongoDBStore({
     uri: String(process.env.MONGO_URL),
     collection: "sessions",
