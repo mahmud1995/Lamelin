@@ -1,24 +1,47 @@
+// ZA TASK
+
+type Person = { age: number };
+
+function sortByAge(arr: Person[]): Person[] {
+    return arr.slice().sort((a, b) => a.age - b.age); // Create a copy before sorting
+}
+
+const people = [{ age: 23 }, { age: 21 }, { age: 13 }];
+const sortedPeople = sortByAge(people);
+
+console.log("people:",people);        // Output: [{ age: 23 }, { age: 21 }, { age: 13 }]
+console.log("sortedPeople",sortedPeople);  // Output: [{ age: 13 }, { age: 21 }, { age: 23 }]
+
+
+
+
+
+
+
+
+
+
 /*
 // Z-TASK:
 //
 // Shunday function yozing, u sonlardan tashkil topgan array qabul qilsin. Function arraydagi juft sonlarni yigindisini qaytarsin
 // MASALAN: sumEvens([1,2,3]) return 2
 */ 
-function sumEvents(arr: number[]) {
-    // Buyerda bizni arrayimizni ichida tashkil topkan sonlardan
-    // juft sonlarni yigindisini saqlaymiz
-    let doubleNum = 0;
-    // for loop orqalik arr.length loop qilib i mizni sonini tenlab olamiz
-    for (let i = 0; i < arr.length; i++) {
-        // i 3ga teng va uni foiz orqalik juft sonini doubleNum ga saqlab, qaytaryapmiz.
-        if (arr[i] % 2 === 0) {
-            doubleNum += arr[i];
-        }
-    }
-    return doubleNum;
-}
-const result22 = sumEvents([1, 2, 3]);
-console.log("result: =>", result22);
+// function sumEvents(arr: number[]) {
+//     // Buyerda bizni arrayimizni ichida tashkil topkan sonlardan
+//     // juft sonlarni yigindisini saqlaymiz
+//     let doubleNum = 0;
+//     // for loop orqalik arr.length loop qilib i mizni sonini tenlab olamiz
+//     for (let i = 0; i < arr.length; i++) {
+//         // i 3ga teng va uni foiz orqalik juft sonini doubleNum ga saqlab, qaytaryapmiz.
+//         if (arr[i] % 2 === 0) {
+//             doubleNum += arr[i];
+//         }
+//     }
+//     return doubleNum;
+// }
+// const result22 = sumEvents([1, 2, 3]);
+// console.log("result: =>", result22);
 
 
 
