@@ -10,7 +10,7 @@ const people = [{ age: 23 }, { age: 21 }, { age: 13 }];
 const sortedPeople = sortByAge(people);
 
 console.log("people:",people);        // Output: [{ age: 23 }, { age: 21 }, { age: 13 }]
-console.log("sortedPeople",sortedPeople);  // Output: [{ age: 13 }, { age: 21 }, { age: 23 }]
+console.log("sortedPeople  ",sortedPeople);  // Output: [{ age: 13 }, { age: 21 }, { age: 23 }]
 
 
 

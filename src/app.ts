@@ -1,3 +1,4 @@
+import cors from "cors";
 import express from "express";
 import path from 'path';
 import router from "./router";
@@ -25,6 +26,7 @@ app.use(express.urlencoded({extended: true})); // traditional API lar uchun back
 app.use(express.json()); // REST API larni backendga kirishga ruxsat beradi, JSON==> OBJ
 app.use(cookieParser()); // cookie lar parsing qb beradi
 // MIddleWare integration hosil qilamiz
+app.use(cors({credentials: true, origin: true})); // ixtiyoriy domain dan kelayotgan request larni bizning severga kirishiga ruxsat beradi
 app.use(morgan(MORGAN_FORMAT));
 
 
