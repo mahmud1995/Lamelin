@@ -1,16 +1,55 @@
+/*  TASK ZC
+
+    Selisy (°C) shkalasi bo'yicha raqam qabul qilib, uni
+    Ferenhayt (°F) shkalisaga o'zgaritib beradigan function yozing.
+    MASALAN: celsiusToFahrenheit(0) return 32;
+    MASALAN: celsiusToFahrenheit(10) return 50;
+    Yuqoridagi misolda, 0°C, 32°F'ga teng.
+    Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
+    °C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi.
+*/
+function celsiusToFahrenheit1(celsius: number): number {
+    return (celsius * 9) / 5 + 32;
+}
+// Call
+const natija = celsiusToFahrenheit1(0);
+console.log("ZC-TASK: =>", natija); 
+
+
+
+
+
+
+
+
+// ZB-TASK:
+
+// Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+// MASALAN: randomBetween(30, 50) return 45
+// function randomBetween(min: number, max: number): number {
+//     return (Math.random() * (max - min + 1) + min) | 0;
+// }
+// // Call
+// const result = randomBetween(30, 50);
+// console.log('ZB-TASK: =>', result);
+
+
+
+
+
 // ZA TASK
 
-type Person = { age: number };
+// type Person = { age: number };
 
-function sortByAge(arr: Person[]): Person[] {
-    return arr.slice().sort((a, b) => a.age - b.age); // Create a copy before sorting
-}
+// function sortByAge(arr: Person[]): Person[] {
+//     return arr.slice().sort((a, b) => a.age - b.age); // Create a copy before sorting
+// }
 
-const people = [{ age: 23 }, { age: 21 }, { age: 13 }];
-const sortedPeople = sortByAge(people);
+// const people = [{ age: 23 }, { age: 21 }, { age: 13 }];
+// const sortedPeople = sortByAge(people);
 
-console.log("people:",people);        // Output: [{ age: 23 }, { age: 21 }, { age: 13 }]
-console.log("sortedPeople  ",sortedPeople);  // Output: [{ age: 13 }, { age: 21 }, { age: 23 }]
+// console.log("people:",people);        // Output: [{ age: 23 }, { age: 21 }, { age: 13 }]
+// console.log("sortedPeople  ",sortedPeople);  // Output: [{ age: 13 }, { age: 21 }, { age: 23 }]
 
 
 
