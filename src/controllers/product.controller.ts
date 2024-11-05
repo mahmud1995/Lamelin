@@ -29,7 +29,7 @@ const productController: T = {};
         }
         if(search) inquiry.search = String(search);
         const result = await productService.getProducts(inquiry);
-        res.status(HttpCode.OK).json({ result: "DONE!"});
+        res.status(HttpCode.OK).json(result); //: "DONE!"
     } catch (err) {
         console.log("Error, getProducts:", err);
         if (err instanceof Errors) res.status(err.code).json(err);
