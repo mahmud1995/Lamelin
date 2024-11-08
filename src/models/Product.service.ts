@@ -12,10 +12,11 @@ import { ViewGroup } from "../libs/enums/view.enum";
 
 class ProductService {
     private readonly productModel;
-    public viewService: any;
+    public viewService;
 
     constructor() {
         this.productModel = ProductModel;
+        this.viewService = new ViewService();
     }
 
     /**SPA */
