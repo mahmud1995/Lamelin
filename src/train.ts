@@ -1,3 +1,19 @@
+
+
+// TASK ZE
+function removeDuplicate(str: string): string {
+    
+    const uniqueChars = new Set<string>();
+    for (const char of str) {
+        uniqueChars.add(char); // Add each character to the Set
+    }
+    return Array.from(uniqueChars).join('');
+}
+
+// Example usage
+const natija1 = removeDuplicate("stringg")
+console.log("stringg==> ",natija1); // Output: 'string'
+
 /*
 TASK ZD
 
@@ -14,17 +30,17 @@ Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
 yangilangan arrayni qaytarmoqda.
 */
 
-function changeNumberInArray(num1: number, arr: number[], num2: number) {
-    arr.forEach((value, index) => {
-        if (index === num1) {
-            arr[index] = num2;
-        }
-    });
-    return arr;
-}
-// Call
-const natijamiz = changeNumberInArray(1, [1, 3, 7, 2], 2);
-console.log('TASK-ZD:', natijamiz);
+// function changeNumberInArray(num1: number, arr: number[], num2: number) {
+//     arr.forEach((value, index) => {
+//         if (index === num1) {
+//             arr[index] = num2;
+//         }
+//     });
+//     return arr;
+// }
+// // Call
+// const natijamiz = changeNumberInArray(1, [1, 3, 7, 2], 2);
+// console.log('TASK-ZD:', natijamiz);
 
 
 
