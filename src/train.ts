@@ -1,18 +1,30 @@
+/*
+TASK ZG
+String sifatida berilgan string parametrni
+snake case'ga o'tkazib beradigan function yozing.
+MASALAN: convertToSnakeCase('name should be a string')
+return 'name_should_be_a_string'
 
+*/
+const convertToSnakeCase = (str: string) => {
+    return str.split(" ").join("_");
+}
+const natija = convertToSnakeCase('name should be a string');
+console.log("TASK-ZG: =>", natija);
 
 // TASK ZE
-function removeDuplicate(str: string): string {
+// function removeDuplicate(str: string): string {
     
-    const uniqueChars = new Set<string>();
-    for (const char of str) {
-        uniqueChars.add(char); // Add each character to the Set
-    }
-    return Array.from(uniqueChars).join('');
-}
+//     const uniqueChars = new Set<string>();
+//     for (const char of str) {
+//         uniqueChars.add(char); // Add each character to the Set
+//     }
+//     return Array.from(uniqueChars).join('');
+// }
 
-// Example usage
-const natija1 = removeDuplicate("stringg")
-console.log("stringg==> ",natija1); // Output: 'string'
+// // Example usage
+// const natija1 = removeDuplicate("stringg")
+// console.log("stringg==> ",natija1); // Output: 'string'
 
 /*
 TASK ZD
