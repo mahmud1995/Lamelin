@@ -1,3 +1,24 @@
+// ZH - TASK
+function findDisappearedNumbers(arr: number[]): number[] {
+   
+    const maxNum = Math.max(...arr);
+  
+   
+    const allNumbers = Array.from({ length: maxNum }, (_, i) => i + 1);
+  
+    
+    const missingNumbers = allNumbers.filter(num => !arr.includes(num));
+  
+    return missingNumbers;
+  }
+
+const natija = findDisappearedNumbers([1,3,4,7]);
+console.log("natija:", natija); // Output: [2, 5, 6]
+  
+
+
+
+
 /*
 TASK ZG
 String sifatida berilgan string parametrni
@@ -6,11 +27,11 @@ MASALAN: convertToSnakeCase('name should be a string')
 return 'name_should_be_a_string'
 
 */
-const convertToSnakeCase = (str: string) => {
-    return str.split(" ").join("_");
-}
-const natija = convertToSnakeCase('name should be a string');
-console.log("TASK-ZG: =>", natija);
+// const convertToSnakeCase = (str: string) => {
+//     return str.split(" ").join("_");
+// }
+// const natija = convertToSnakeCase('name should be a string');
+// console.log("TASK-ZG: =>", natija);
 
 // TASK ZE
 // function removeDuplicate(str: string): string {
