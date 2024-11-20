@@ -1,19 +1,33 @@
+// ZI-TASK:
+
+function delayHelloWorld(str: string){
+    setTimeout(() => {
+        console.log(str);
+    }, 3000); 
+ }
+// Call
+const natija = delayHelloWorld("Hello World!");
+console.log("natija:", natija);
+
+
+
+
 // ZH - TASK
-function findDisappearedNumbers(arr: number[]): number[] {
+// function findDisappearedNumbers(arr: number[]): number[] {
    
-    const maxNum = Math.max(...arr);
+//     const maxNum = Math.max(...arr);
   
    
-    const allNumbers = Array.from({ length: maxNum }, (_, i) => i + 1);
+//     const allNumbers = Array.from({ length: maxNum }, (_, i) => i + 1);
   
     
-    const missingNumbers = allNumbers.filter(num => !arr.includes(num));
+//     const missingNumbers = allNumbers.filter(num => !arr.includes(num));
   
-    return missingNumbers;
-  }
+//     return missingNumbers;
+//   }
 
-const natija = findDisappearedNumbers([1,3,4,7]);
-console.log("natija:", natija); // Output: [2, 5, 6]
+// const natija = findDisappearedNumbers([1,3,4,7]);
+// console.log("natija:", natija); // Output: [2, 5, 6]
   
 
 
