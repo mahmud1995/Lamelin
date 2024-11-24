@@ -1,13 +1,40 @@
-// ZI-TASK:
+// TASK ZK:
 
-function delayHelloWorld(str: string){
-    setTimeout(() => {
-        console.log(str);
-    }, 3000); 
- }
-// Call
-const natija = delayHelloWorld("Hello World!");
-console.log("natija:", natija);
+// Shunday function yozing, bu function har bir soniyada bir marotaba
+// console'ga 1'dan 5'gacha bo'lgan raqamlarni chop etsin va
+// 5 soniyadan so'ng function o'z ishini to'xtatsin
+  
+// MASALAN: printNumbers();
+
+function printNumbers() {
+    let count = 1;
+    const intervalId = setInterval(() => {
+      console.log(count);
+      if (count === 5) {
+        clearInterval(intervalId);
+      }
+      count++;
+    }, 1000);
+  }
+  // Call
+  const natija = printNumbers();
+  console.log("Boshla:",natija);
+
+
+
+
+
+
+// // ZI-TASK:
+
+// function delayHelloWorld(str: string){
+//     setTimeout(() => {
+//         console.log(str);
+//     }, 3000); 
+//  }
+// // Call
+// const natija = delayHelloWorld("Hello World!");
+// console.log("natija:", natija);
 
 
 
