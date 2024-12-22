@@ -1,4 +1,77 @@
 /*
+    ZT-TASK
+    Shunday function yozing, u parametridagi array ichidagi barcha nollarni array oxiriga qoyib qolgan raqamlar ketma-ketligini saqlasin.
+    MASALAN: moveZeroes([0, 1, 0, 3, 12]) return [1, 3, 12, 0, 0] 
+
+*/
+
+
+/*
+ZS-TASK:
+
+Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+MASALAN: sumOfUnique([1,2,3,2]) return 4
+*/
+
+
+
+// ===============================================================================
+/**
+ ZR-TASK:
+
+Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
+MASALAN: firstUniqueCharIndex(“stamp”) return 0
+
+*/
+// function firstUniqueCharIndex(str: string): number {
+//     const charCount = str.split('').reduce<Record<string, number>>((acc, char) => {
+//         acc[char] = (acc[char] || 0) + 1;
+//         return acc;
+//     }, {});
+
+//     for (let i = 0; i < str.length; i++) {
+//         if (charCount[str[i]] === 1) {
+//             return i;
+//         }
+//     }
+
+//     return -1;
+// }
+// const natija = firstUniqueCharIndex("stamp");
+// console.log(natija); 
+
+
+// ===============================================================================
+
+/*
+    ZP-TASK
+*/
+// Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+
+// function findDuplicatesForLoop(arr: number[]): number[] {
+//     const count: Record<number, number> = {};
+//     const result: number[] = [];
+
+//     for (const num of arr) {
+//         count[num] = (count[num] || 0) + 1;
+//     }
+
+//     for (const key in count) {
+//         if (count[key] > 1) {
+//             result.push(Number(key));
+//         }
+//     }
+
+//     return result;
+// }
+// const natija1 = findDuplicatesForLoop([1, 2, 3, 4, 5, 4, 3, 4]);
+// console.log(natija1);
+
+
+
+
+/*
 ZO-TASK:
 
 Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
@@ -6,13 +79,13 @@ MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
 
 */
 
-function countNumberAndLetters(input: string): { number: number; letter: number } {
-    const numbers = input.match(/[0-9]/g)?.length || 0;
-    const letters = input.match(/[a-zA-Z]/g)?.length || 0;
+// function countNumberAndLetters(input: string): { number: number; letter: number } {
+//     const numbers = input.match(/[0-9]/g)?.length || 0;
+//     const letters = input.match(/[a-zA-Z]/g)?.length || 0;
 
-    return { number: numbers, letter: letters };
-}
-console.log(countNumberAndLetters("string152%¥"));
+//     return { number: numbers, letter: letters };
+// }
+// console.log(countNumberAndLetters("string152%¥"));
 
 
 
