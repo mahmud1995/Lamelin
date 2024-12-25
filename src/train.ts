@@ -1,4 +1,46 @@
 /*
+ZU-TASK:
+
+Shunday function yozing, uni 2 ta parametri bo'lsin, biri array va biri string. Function arrayda berilgan malumotlarni 2-parametrdagi string qiymati asosida guruhlab qaytarsin.
+MASALAN:
+const data = [
+  { name: 'Alice', age: 25, city: 'London' },
+  { name: 'Bob',   age: 30, city: 'New York' },
+  { name: 'Charlie', age: 25, city: 'London' },
+];
+console.log(groupBy(data, 'city')); // { 'London': [ { name: 'Alice', age: 25, city: 'London' }, { name: 'Charlie', age: 25, city: 'London' } ], 'New York': [ { name: 'Bob', age: 30, city: 'New York' } ] }
+*/
+
+interface T  {
+    [key: string]: any;
+}
+
+function groupBy(array: T[], key: keyof T) {
+    const result: T = {};
+    for (const item of array) {
+      const groupKey = String(item[key]);
+      if (!result[groupKey]) {
+        result[groupKey] = [];
+      }
+      result[groupKey].push(item);
+    }
+    return result;
+  }
+
+  const data = [
+    { name: 'Alice', age: 25, city: 'London' },
+    { name: 'Bob', age: 30, city: 'New York' },
+    { name: 'Charlie', age: 25, city: 'London' },
+  ];
+  const natijaZU = groupBy(data, "city");
+  
+  console.log(natijaZU);
+
+
+
+
+
+/*
     ZT-TASK
     Shunday function yozing, u parametridagi array ichidagi barcha nollarni array oxiriga qoyib qolgan raqamlar ketma-ketligini saqlasin.
     MASALAN: moveZeroes([0, 1, 0, 3, 12]) return [1, 3, 12, 0, 0] 
