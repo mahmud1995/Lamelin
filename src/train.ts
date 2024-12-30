@@ -11,30 +11,30 @@ const data = [
 console.log(groupBy(data, 'city')); // { 'London': [ { name: 'Alice', age: 25, city: 'London' }, { name: 'Charlie', age: 25, city: 'London' } ], 'New York': [ { name: 'Bob', age: 30, city: 'New York' } ] }
 */
 
-interface T  {
-    [key: string]: any;
-}
+// interface T  {
+//     [key: string]: any;
+// }
 
-function groupBy(array: T[], key: keyof T) {
-    const result: T = {};
-    for (const item of array) {
-      const groupKey = String(item[key]);
-      if (!result[groupKey]) {
-        result[groupKey] = [];
-      }
-      result[groupKey].push(item);
-    }
-    return result;
-  }
+// function groupBy(array: T[], key: keyof T) {
+//     const result: T = {};
+//     for (const item of array) {
+//       const groupKey = String(item[key]);
+//       if (!result[groupKey]) {
+//         result[groupKey] = [];
+//       }
+//       result[groupKey].push(item);
+//     }
+//     return result;
+//   }
 
-  const data = [
-    { name: 'Alice', age: 25, city: 'London' },
-    { name: 'Bob', age: 30, city: 'New York' },
-    { name: 'Charlie', age: 25, city: 'London' },
-  ];
-  const natijaZU = groupBy(data, "city");
+//   const data = [
+//     { name: 'Alice', age: 25, city: 'London' },
+//     { name: 'Bob', age: 30, city: 'New York' },
+//     { name: 'Charlie', age: 25, city: 'London' },
+//   ];
+//   const natijaZU = groupBy(data, "city");
   
-  console.log(natijaZU);
+//   console.log(natijaZU);
 
 
 
@@ -46,7 +46,37 @@ function groupBy(array: T[], key: keyof T) {
     MASALAN: moveZeroes([0, 1, 0, 3, 12]) return [1, 3, 12, 0, 0] 
 
 */
+// function moveZeroes(nums: number[]): number[] {
+//     const nonZeroes = nums.filter(num => num !== 0);
+//     const zeroes = nums.filter(num => num === 0);
+//     return [...nonZeroes, ...zeroes];
+// }
 
+// const natija = moveZeroes([0, 1, 0, 3, 12]);
+// console.log(natija);
+
+/*
+ZR-Task
+Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
+MASALAN: firstUniqueCharIndex(“stamp”) return 0
+*/
+// function firstUniqueCharIndex(str: string): number {
+//     const charCount = str.split('').reduce<Record<string, number>>((acc, char) => {
+//         acc[char] = (acc[char] || 0) + 1;
+//         return acc;
+//     }, {});
+
+//     for (let i = 0; i < str.length; i++) {
+//         if (charCount[str[i]] === 1) {
+//             return i;
+//         }
+//     }
+
+//     return -1;
+// }
+// const natija = firstUniqueCharIndex("stamp")
+// console.log(natija);
+// ==============================================================================
 
 /*
 ZS-TASK:
