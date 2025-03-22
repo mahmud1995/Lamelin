@@ -6,7 +6,7 @@ $(function () {
     // ProductType DISH bo'lsa ==> Dish Volume ga o'zgar
     $(".product-collection").on("change", () => {
         const selected = $(".product-collection").val();
-        if(selectedValue === "DRINK") {
+        if(selectedValue === "SKINCARE") {
             $("#product-volume").show();
             $("#product-collection").hide();
         
@@ -18,7 +18,7 @@ $(function () {
     // New Product bosganda ==> Product Container pastga tushad
     $("#process-btn").on("click", () => {
         $(".dish-container").slideToggle(500);
-        $("#process-btn").css("display", "none");
+        $("#process-btn").css("display", "");
     });
     // Cancel bosilganda ==> Product Container yuqoladi
     $("#cancel-btn").on("click", () => {

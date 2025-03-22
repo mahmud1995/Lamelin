@@ -1,98 +1,97 @@
 console.log("Home frontend javascript file");
+for (
+    let i = 0, element;
+    (element = document.querySelectorAll('input[type="range"]')[i++]);
 
-function fitElementToParent(el, padding) {
-  let timeout = null;
-
-  function resize() {
-    if (timeout) clearTimeout(timeout);
-    anime.set(el, { scale: 1 });
-    let pad = padding || 0;
-    let parentEl = el.parentNode;
-    let elOffsetWidth = el.offsetWidth - pad;
-    let parentOffsetWidth = parentEl.offsetWidth;
-    let ratio = parentOffsetWidth / elOffsetWidth;
-    timeout = setTimeout(anime.set(el, { scale: ratio }), 10);
-  }
-
-  resize();
-  window.addEventListener("resize", resize);
+) {
+    rangeSlider.create(element, {
+        polyfill: true
+    });
 }
 
-(function () {
-  const sphereEl = document.querySelector(".sphere-animation");
-  const spherePathEls = sphereEl.querySelectorAll(".sphere path");
-  const pathLength = spherePathEls.length;
-  const animations = [];
+$(document).ready(function () {
+    let speedSlider = $('input[name="speed"]'),
+        spikesSlider = $('input[name="spikes"]'),
+        processingSlider = $('input[name="processing"]');
 
-  fitElementToParent(sphereEl);
+    let $canvas = $("#blob canvas"),
+        canvas = $canvas[0],
+        renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            context: canvas.getContext("webgl2"),
+            antialias: true,
+            alpha: true
+        }),
+        simplex = new SimplexNoise();
 
-  const breathAnimation = anime({
-    begin: function () {
-      for (let i = 0; i < pathLength; i++) {
-        animations.push(
-          anime({
-            targets: spherePathEls[i],
-            stroke: {
-              value: ["rgba(255,75,75,1)", "rgba(80,80,80,.35)"],
-              duration: 500,
-            },
-            translateX: [2, -4],
-            translateY: [2, -4],
-            easing: "easeOutQuad",
-            autoplay: false,
-          })
-        );
-      }
-    },
-    update: function (ins) {
-      animations.forEach(function (animation, i) {
-        let percent = (1 - Math.sin(i * 0.35 + 0.0022 * ins.currentTime)) / 2;
-        animation.seek(animation.duration * percent);
-      });
-    },
-    duration: Infinity,
-    autoplay: false,
-  });
+    renderer.setSize($canvas.width(), $canvas.height());
+    renderer.setPixelRatio(window.devicePixelRatio || 1);
 
-  const introAnimation = anime
-    .timeline({
-      autoplay: false,
-    })
-    .add(
-      {
-        targets: spherePathEls,
-        strokeDashoffset: {
-          value: [anime.setDashoffset, 0],
-          duration: 3900,
-          easing: "easeInOutCirc",
-          delay: anime.stagger(190, { direction: "reverse" }),
-        },
-        duration: 2000,
-        delay: anime.stagger(60, { direction: "reverse" }),
-        easing: "linear",
-      },
-      0
+    let scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(
+        45,
+        $canvas.width() / $canvas.height(),
+        0.1,
+        1000
     );
 
-  const shadowAnimation = anime(
-    {
-      targets: "#sphereGradient",
-      x1: "25%",
-      x2: "25%",
-      y1: "0%",
-      y2: "75%",
-      duration: 30000,
-      easing: "easeOutQuint",
-      autoplay: false,
-    },
-    0
-  );
+    camera.position.z = 5;
 
-  function init() {
-    introAnimation.play();
-    breathAnimation.play();
-    shadowAnimation.play();
-  }
+    let geometry = new THREE.SphereGeometry(0.8, 128, 128);
 
-  init();
-})();
+    let material = new THREE.MeshPhongMaterial({
+        color: 0xe4ecfa,
+        shininess: 100
+    });
+
+    let lightTop = new THREE.DirectionalLight(0xffffff, 0.7);
+    lightTop.position.set(0, 500, 200);
+    lightTop.castShadow = true;
+    scene.add(lightTop);
+
+    let lightBottom = new THREE.DirectionalLight(0xffffff, 0.25);
+    lightBottom.position.set(0, -500, 400);
+    lightBottom.castShadow = true;
+    scene.add(lightBottom);
+
+    let ambientLight = new THREE.AmbientLight(0x798296);
+    scene.add(ambientLight);
+
+    let sphere = new THREE.Mesh(geometry, material);
+
+    scene.add(sphere);
+
+    let update = () => {
+        let time =
+                performance.now() *
+                0.00001 *
+                speedSlider.val() *
+                Math.pow(processingSlider.val(), 3),
+            spikes = spikesSlider.val() * processingSlider.val();
+
+        for (let i = 0; i < sphere.geometry.vertices.length; i++) {
+            let p = sphere.geometry.vertices[i];
+            p.normalize().multiplyScalar(
+                1 +
+                    0.3 *
+                        simplex.noise3D(
+                            p.x * spikes,
+                            p.y * spikes,
+                            p.z * spikes + time
+                        )
+            );
+        }
+
+        sphere.geometry.computeVertexNormals();
+        sphere.geometry.normalsNeedUpdate = true;
+        sphere.geometry.verticesNeedUpdate = true;
+    };
+
+    function animate() {
+        update();
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+});

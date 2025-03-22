@@ -4,8 +4,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 import * as bcrypt from "bcryptjs";
 import { shapeIntoMongooseObectId } from "../libs/config";
-
-
+import { Document } from "mongoose";
 class MemberService {
     private readonly memberModel;
     
@@ -71,7 +70,7 @@ class MemberService {
         const result = await this.memberModel.findOne({ _id: memberId, memberStatus: MemberStatus.ACTIVE} ).exec();
         if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
-        return result as unknown as Member;
+        return result as Document & Member;
     }
 
     public async updateMember(

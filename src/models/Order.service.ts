@@ -113,8 +113,13 @@ class OrderService {
     input: OrderUpdateInput
   ): Promise<Order> {
     const memberId = shapeIntoMongooseObectId(member._id),
-      orderId = shapeIntoMongooseObectId(input.orderId),
-      orderStatus = input.orderStatus;
+    
+  //   if (!input.orderId || input.orderId.length !== 24) {
+  //     throw new Error(`Invalid Order ID: ${input.orderId}`)
+  // },
+
+    orderId = shapeIntoMongooseObectId(input.orderId),
+    orderStatus = input.orderStatus;
 
     const result = await this.orderModel
       .findOneAndUpdate(
