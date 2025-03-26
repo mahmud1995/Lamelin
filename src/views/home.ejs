@@ -1,0 +1,95 @@
+<%- include('includes/header') %>
+
+<link rel="stylesheet" type="text/css" href="/css/home.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://aaroniker.me/range.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.js"></script>
+
+<body>
+  <div class="home-container">
+    <div class="navigation-menu">
+      <ul class="nav justify-content-center">
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin">Home</a>
+        </li>
+        <% if(!member) { %>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/signup">Signup</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/login">Login</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/product/all">Menu</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/user/all">Users</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/event/all">Events</a>
+        </li>
+
+        <li
+          class="nav-item"
+          style="cursor: pointer"
+          onclick="return confirm('Do you want to logout?')"
+        >
+          <a class="nav-link" href="/admin/logout">Logout</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+
+  <div id="blob">
+    <canvas></canvas>
+  </div>
+
+  <div class="controls">
+    <div>
+      <label>Speed</label>
+      <input type="range" min="10" max="120" value="13" step="1" name="speed" />
+    </div>
+    <div>
+      <label>Spikes</label>
+      <input
+        type="range"
+        min=".05"
+        max="2"
+        value=".6"
+        step=".05"
+        name="spikes"
+      />
+    </div>
+    <div>
+      <label>Processing</label>
+      <input
+        type="range"
+        min=".6"
+        max="2.4"
+        value="1"
+        step=".01"
+        name="processing"
+      />
+    </div>
+  </div>
+
+  <!-- dribbble -->
+  <a
+    class="dribbble"
+    href="https://dribbble.com/shots/6640580-AI-Assistant"
+    target="_blank"
+  >
+    <img
+      src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg"
+      alt=""
+    />
+  </a>
+  <script type="text/javascript" src="/js/home.js"></script>
+</body>
+
+<%- include('includes/footer') %>

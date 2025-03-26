@@ -1,0 +1,23 @@
+ARCHITECTURE PATTERN:
+    MVC, DI, MVP (F), REDUX(F), CORS
+
+DESIGN PATTERN
+    MiddleWare, Decorator
+
+    
+BURAK PROJECT
+    Backend: MVC & MiddleWare
+    Frontend: REDUX
+
+NESTAR PROJECT
+    B: MVC & DI & Decorators & MiddleWare
+    F: MVP & Caching
+
+
+Agar ctrl+z bosib quysam ctrl+c urniga:
+    npm i kill-port --global
+
+
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"

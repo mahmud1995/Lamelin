@@ -1,0 +1,154 @@
+<%- include('includes/header') %>
+
+<link rel="stylesheet" type="text/css" href="/css/event.css" />
+
+<body>
+  <div class="events-container">
+    <!-- Navbar -->
+    <div class="navigation-menu">
+      <ul class="nav justify-content-center">
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/">Home</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/product/all">Menu</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/user/all">Users</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" href="/admin/event/all">Events</a>
+        </li>
+        <li class="nav-item" style="cursor:pointer">
+          <a class="nav-link" href="/admin/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <!--  -->
+
+    <!-- BODY -->
+     <div class="events-menu-frame">
+      <div class="board">
+        <div class="dishes-table">
+          <span class="new-event-txt" style="margin-bottom: -50px;">EVENTS</span>
+          <div class="long-input" style="align-items: flex-end; margin-bottom: 25px;">
+            <button class="btn btn-primary" id="process-btn">
+              Add New Event
+            </button>
+          </div>
+          <!-- Pasda create new event bosilganda pop-up menu -->
+          <form onsubmit="return validateForm()"
+           action="/admin/event/create"
+           method="POST"
+           class="event-container dish-container"
+           enctype="multipart/form-data">
+           
+           <div class="long-input" style="display: flex; align-items: center">
+            <span class="new-event-txt">NEW EVENT DETAIL</span>
+           </div>
+           <div class="login-input-frame">
+            <div class="half-input-frame">
+              <div class="half-input">
+                <label>Event Name</label>
+                <input type="text" placeholder="Event Name" name="eventName" class="event-name">
+              </div>
+              <div class="half-input">
+                <label>Event Location</label>
+                <input type="text" placeholder="Event Location" name="eventLocation" class="event-location">
+              </div>
+            </div>
+            <!-- Event Status -->
+            <div class="half-input-frame">
+              <div class="half-input">
+                <label>Event Status</label>
+                <!-- new event detail ning ichidagi status -->
+                <select class="spec-select new-event-status" name="eventStatus" id="">
+                  <option value="PAUSE">PAUSE</option>
+                  <option value="PROCESS">PROCESS</option>
+                </select>
+              </div>
+              <div class="half-input">
+                <label>Event Author</label>
+                <input type="text" placeholder="Event Author" name="eventAuthor" class="event-author">
+              </div>
+            </div>
+            <!-- event Desc -->
+            <div class="long-input">
+              <label>Event Description</label>
+              <textarea name="eventDesc" class="event-desc"></textarea>
+            </div>
+            <div class="half-input-frame">
+            </div>
+            </div>
+            <!-- Image insert -->
+            <div class="img-frame">
+              <label>Event Image</label>
+              <div class="media-frame">
+                <div class="upload-img-box">
+                  <img src="/img/upload.svg" class="1" id="image-section-1" alt="">
+                  <input
+                    type="file"
+                    id="file"
+                    name="eventImage"
+                    class="image-one"
+                    required
+                    onchange="previewFileHandler(this, 1)"
+                    
+                  />
+                </div>
+                <input name="restaurant-id" class="restaurant-id" hidden />
+              </div>
+            </div>
+            <!-- Buttons: create & cancel -->
+            <div class="operation-buttons">
+              <button type="submit" class="btn btn-primary" id="create-btn">
+                Add Event
+              </button>
+            </div>
+            <div class="operation-buttons">
+              <button class="btn btn-danger" id="cancel-btn">Cancel</button>
+            </div>
+          </form>
+          <!--  -->
+          
+          <table class="table table-bordered table table-hover">
+            <thead class="thead-light">
+              <tr class="thead-light">
+                <th scope="col">T/r</th>
+                <th scope="col">Event Name</th>
+                <th scope="col">Event Author</th>
+                <th scope="col">Event Desc</th>
+                <th scope="col">Event Status</th>
+              </tr>
+            </thead>
+            <!-- LOOP EVENTS -->
+             <% events.map(function(value, key) { %>
+              <tbody style="background: #fff;">
+                <td><%= key + 1 %></td>
+                <td><%= value.eventName %></td>
+                <td><%= value.eventAuthor %></td>
+                <td><%= value.eventDesc %></td>
+                <td>
+                  <select style="cursor: pointer;" class="spec-select new-event-status" name="eventStatus" id="<%= value._id %>">
+                    <option value="PAUSE" <%= value.eventStatus === 'PAUSE' ? 'selected' : '' %> >PAUSE</option>
+                    <option value="PROCESS" <%= value.eventStatus === 'PROCESS' ? 'selected': '' %> >PROCESS</option>
+                    <option value="DELETE" <%= value.eventStatus === 'DELETE' ? 'selected': '' %> >DELETE</option>
+                  </select>
+                </td>
+              </tbody>
+              <% }) %>
+              <!--  -->
+          </table>
+          <!-- New Event BUTTON tepaga kuchirildi -->
+
+         
+            
+          </div>
+        </div>
+      </div>
+     </div>
+  </div>
+  <script type="text/javascript" src="/js/event.js"></script>
+</body>
+
+<%- include('includes/footer') %>

@@ -1,0 +1,198 @@
+.home-container {
+  position: absolute;
+  width: auto;
+  height: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background: linear-gradient(-45deg, #110303f0, #dd6d04, #011c1afc, #7a6868); */
+  /* background: #1c1f29; */
+}
+
+.home-container a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.home-container .nav-item a {
+  /* color: #fff; */
+  color: #e3c08d;
+}
+
+.home-container .nav-item a.disabled {
+  color: #898071;
+}
+
+.home-container .navigation-menu {
+  position: relative;
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10000;
+  top: 1%;
+  color: #efefee;
+  font-size: 40px;
+  font-family: monospace;
+}
+#blob {
+  position: relative;
+  /* background: blue; */
+}
+#blob canvas {
+  width: 1000px;
+  height: 1000px;
+  /* margin-top: -5%; */
+  /* margin-bottom: 15px; */
+  /* background: red; */
+}
+@media (max-width: 1200px) {
+  #blob canvas {
+    margin-top: -5%;
+    width: 1500px;
+  }
+}
+@media (max-width: 600px) {
+  #blob canvas {
+    width: 800px;
+  }
+}
+
+.controls {
+  position: absolute;
+  margin-top: 100px;
+  background: #3f4656;
+  display: flex;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 5px;
+  z-index: 3;
+  box-shadow: 0 4px 20px -1px rgba(18, 22, 33, 0.7);
+}
+@media (max-width: 1200px) {
+  .controls {
+    margin-top: -4%;
+  }
+}
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+  }
+}
+.controls label {
+  color: #cdd9ed;
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) {
+  .controls label {
+    margin-bottom: 12px;
+  }
+}
+.controls [type="range"] {
+  width: 160px;
+}
+@media (max-width: 600px) {
+  .controls [type="range"] {
+    width: 280px;
+  }
+}
+.controls > div:not(:last-child) {
+  margin-right: 20px;
+}
+@media (max-width: 600px) {
+  .controls > div:not(:last-child) {
+    margin: 0 0 24px 0;
+  }
+}
+
+.rangeSlider {
+  position: relative;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.rangeSlider.rangeSlider__horizontal {
+  height: 10px;
+  width: 160px;
+}
+.rangeSlider .rangeSlider__fill {
+  border-radius: 7px;
+  background: #fff;
+  position: absolute;
+}
+.rangeSlider .rangeSlider__fill:before {
+  content: "";
+  left: -2px;
+  top: -2px;
+  bottom: -2px;
+  right: -2px;
+  border: 2px solid #3f4656;
+  border-radius: 6px;
+  position: absolute;
+}
+.rangeSlider .rangeSlider__fill__horizontal {
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.rangeSlider .rangeSlider__handle {
+  border: 2px solid #3f4656;
+  cursor: grab;
+  cursor: -webkit-grab;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+.rangeSlider .rangeSlider__handle__horizontal {
+  top: -7px;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Source Sans Pro", Arial;
+  background: #1c1f29;
+}
+body .dribbble {
+  position: fixed;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+}
+body .dribbble img {
+  display: block;
+  height: 28px;
+}
