@@ -872,7 +872,8 @@ pm2 start dist/server.js --name=LAMELIN
 
 pm2 start "npm run start:dev" --name=LAMELIN
 pm2 stop id ==> id dgani project index raqami(pm2 start -> qayta active qlish)
-pm2 delete ==> first stop and delete project
+pm2 delete id  ==> first stop and delete project
 pm2 restart id ==> 
 pm2 monit ==> monitoring 
+
 */
